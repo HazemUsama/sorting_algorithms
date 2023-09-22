@@ -38,17 +38,34 @@ listint_t *create_listint(const int *array, size_t size)
  */
 int main(void)
 {
-    listint_t *list;
-    int array[] = {4, 3, 1, 2};
-    size_t n = sizeof(array) / sizeof(array[0]);
+	listint_t *list;
+	int array[] = {3, 2, 1};
+	size_t n = sizeof(array) / sizeof(array[0]);
 
-    list = create_listint(array, n);
-    if (!list)
-        return (1);
-    print_list(list);
-    printf("\n");
-    insertion_sort_list(&list);
-    printf("\n");
-    print_list(list);
-    return (0);
+	list = create_listint(array, n);
+	if (!list)
+		return (1);
+	print_list(list);
+	printf("\n");
+	insertion_sort_list(&list);
+	printf("\n");
+	print_list(list);
+	
+	while (list)
+	{
+		int prev, next;
+	
+		if (list->prev)
+			prev = list->prev->n;
+		else
+			prev = 0;
+		if (list->next)
+			next = list->next->n;
+		else
+			next = 0;
+		printf("prev: %d\tcurr:%d\tnext:%d\n", prev, list->n, next);
+		list = list->next;
+
+	}
+	return (0);
 }
