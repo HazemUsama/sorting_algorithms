@@ -1,5 +1,10 @@
 #include "sort.h"
 
+/**
+ * insertion_sort_list - sort a double linked list
+ *
+ * @list: the head of the linked list
+ */
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *curr_node, *prev_node;
