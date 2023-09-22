@@ -9,7 +9,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *curr_node, *prev_node;
 	size_t cnt;
-	
+
 	if (!list)
 		return;
 	curr_node = *list;
