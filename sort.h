@@ -18,6 +18,23 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * swap - swap two numbers
+ *
+ * @a: pointer to the first number
+ * @b: pointer to the second number
+ */
+static inline void swap(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void sort(int *array, size_t size, size_t st, size_t nd);
+size_t partition(int *array, size_t size, size_t st, size_t nd);
 
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
