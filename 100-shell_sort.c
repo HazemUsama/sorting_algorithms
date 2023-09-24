@@ -12,14 +12,14 @@ void shell_sort(int *array, size_t size)
 	size_t cnt = 1, gaps_cnt = 0, *gaps;
 	size_t i, j, k;
 
-	while (cnt <= size)
+	while (cnt < size)
 	{
 		cnt = cnt * 3 + 1;
 		gaps_cnt++;
 	}
 
 	gaps = malloc(sizeof(size_t) * gaps_cnt);
-	if (!gaps)
+	if (!gaps || !gaps_cnt)
 		return;
 
 	gaps[0] = 1;
@@ -27,7 +27,7 @@ void shell_sort(int *array, size_t size)
 		gaps[i] = gaps[i - 1] * 3 + 1;
 
 	i = gaps_cnt - 1;
-	while (1)
+	while (gaps)
 	{
 		for (j = gaps[i]; j < size; j++)
 		{
