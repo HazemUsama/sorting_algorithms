@@ -12,7 +12,7 @@ void shell_sort(int *array, size_t size)
 	size_t cnt = 1, gaps_cnt = 0, *gaps;
 	size_t i, j, k;
 
-	while (cnt < size)
+	while (cnt <= size)
 	{
 		cnt = cnt * 3 + 1;
 		gaps_cnt++;
@@ -25,6 +25,7 @@ void shell_sort(int *array, size_t size)
 	gaps[0] = 1;
 	for (i = 1; i < gaps_cnt; i++)
 		gaps[i] = gaps[i - 1] * 3 + 1;
+
 	i = gaps_cnt - 1;
 	while (1)
 	{
