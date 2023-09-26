@@ -33,6 +33,32 @@ static inline void swap(int *a, int *b)
 	*b = tmp;
 }
 
+/**
+ * swap_nodes - Swap two nodes in a doubly linked list.
+ *
+ * @head: Pointer to the pointer to the head of the linked list.
+ * @curr_node: Pointer to the node to be swapped with the previous node.
+ * @prev_node: Pointer to the previous node in the list.
+ *
+ */
+static inline void swap_nodes
+	(listint_t **head, listint_t *prev_node, listint_t *curr_node)
+{
+
+	curr_node->prev = prev_node->prev;
+	prev_node->next = curr_node->next;
+	if (curr_node->next)
+		curr_node->next->prev = prev_node;
+
+	curr_node->next = prev_node;
+	if (prev_node->prev)
+		prev_node->prev->next = curr_node;
+	else
+		*head = curr_node;
+
+	prev_node->prev = curr_node;
+
+}
 void sort(int *array, size_t size, size_t st, size_t nd);
 size_t partition(int *array, size_t size, size_t st, size_t nd);
 
