@@ -12,6 +12,9 @@ void counting_sort(int *array, size_t size)
 	int max_elem = 0, *counting_array, *new_array;
 	size_t i;
 
+	if (!array)
+		return;
+
 	for (i = 0; i < size; i++)
 	{
 		if (max_elem < array[i])
